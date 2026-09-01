@@ -1,0 +1,21 @@
+[Unit]
+Description=Unitree G1 knowledge and Qwen dialogue bridge
+After=network-online.target g1-voice.service
+Wants=network-online.target
+Requires=g1-voice.service
+
+[Service]
+Type=simple
+User=zzl
+WorkingDirectory=/home/zzl/g1_qwen_rag
+EnvironmentFile=-/etc/g1-dialogue.env
+Environment=HF_HUB_OFFLINE=1
+Environment=TRANSFORMERS_OFFLINE=1
+ExecStart=/home/zzl/g1_qwen_rag/.venv/bin/python /home/zzl/g1_qwen_rag/g1_bridge.py
+StandardOutput=append:/tmp/bridge.log
+StandardError=append:/tmp/bridge.log
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
