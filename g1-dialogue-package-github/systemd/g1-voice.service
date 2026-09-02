@@ -1,0 +1,17 @@
+[Unit]
+Description=Unitree G1 ASR listener
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=zzl
+EnvironmentFile=-/etc/g1-dialogue.env
+ExecStart=/bin/bash -lc '${UNITREE_SDK_ROOT:-/home/zzl/unitree_sdk2}/build/bin/g1_voice ${G1_IFACE:-enp11s0f1} hear'
+StandardOutput=append:/tmp/hear5.log
+StandardError=append:/tmp/hear5.log
+Restart=on-failure
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
