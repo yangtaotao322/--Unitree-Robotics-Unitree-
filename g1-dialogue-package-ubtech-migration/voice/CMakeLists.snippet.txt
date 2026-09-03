@@ -1,0 +1,6 @@
+# 添加到 unitree_sdk2/example/g1/CMakeLists.txt
+add_executable(g1_voice voice/g1_voice.cpp)
+target_link_libraries(g1_voice unitree_sdk2)
+
+add_executable(g1_play_wav voice/g1_play_wav.cpp)
+target_link_libraries(g1_play_wav unitree_sdk2)
