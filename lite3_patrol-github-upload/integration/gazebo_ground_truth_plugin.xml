@@ -1,0 +1,14 @@
+<!-- Add inside the robot's Gazebo/xacro description. -->
+<!-- Change body_name to the actual chassis link name. Lite3 uses TORSO. -->
+<gazebo>
+  <plugin name="ground_truth_odometry" filename="libgazebo_ros_p3d.so">
+    <ros>
+      <namespace>/</namespace>
+      <remapping>odom:=ground_truth/odom</remapping>
+    </ros>
+    <body_name>TORSO</body_name>
+    <frame_name>world</frame_name>
+    <update_rate>30.0</update_rate>
+    <gaussian_noise>0.0</gaussian_noise>
+  </plugin>
+</gazebo>

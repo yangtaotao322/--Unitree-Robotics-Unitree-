@@ -1,0 +1,23 @@
+lite3_patrol:
+  ros__parameters:
+    model_name: robot_model
+    use_dead_reckoning: false
+    pose_topic: /ground_truth/odom
+    relative_waypoints: true
+    waypoints: [0.0, 0.0, 2.0, 0.0, 2.0, 1.5, 0.0, 0.0]
+    waypoint_names: [A, B, C, A_return]
+    max_linear_speed: 0.32
+    min_linear_speed: 0.18
+    max_angular_speed: 0.24
+    position_tolerance: 0.15
+    heading_tolerance: 0.18
+    waypoint_timeout: 70.0
+    dwell_seconds: 2.0
+    max_retries: 2
+    control_rate: 15.0
+    dry_run: false
+    cmd_vel_topic: /cmd_vel
+    obstacle_topic: /patrol/obstacle
+    status_topic: /patrol/status
+    fall_angle_threshold: 0.80
+    log_directory: ~/lite3_patrol_logs
